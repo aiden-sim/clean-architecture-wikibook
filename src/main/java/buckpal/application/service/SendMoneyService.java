@@ -5,6 +5,7 @@ import buckpal.application.port.in.SendMoneyUseCase;
 import buckpal.application.port.out.AccountLock;
 import buckpal.application.port.out.LoadAccountPort;
 import buckpal.application.port.out.UpdateAccountStatePort;
+import buckpal.common.UseCase;
 import buckpal.domain.Account;
 import lombok.RequiredArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
 @Transactional
+@UseCase
 @RequiredArgsConstructor
 public class SendMoneyService implements SendMoneyUseCase {
 

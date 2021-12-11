@@ -2,6 +2,7 @@ package buckpal.adapter.out.persistence;
 
 import buckpal.application.port.out.LoadAccountPort;
 import buckpal.application.port.out.UpdateAccountStatePort;
+import buckpal.common.PersistenceAdapter;
 import buckpal.domain.Account;
 import buckpal.domain.Activity;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@PersistenceAdapter
 @RequiredArgsConstructor
 class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
 
