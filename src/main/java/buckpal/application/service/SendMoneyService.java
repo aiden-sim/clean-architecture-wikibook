@@ -8,19 +8,22 @@ import buckpal.application.port.out.UpdateAccountStatePort;
 import buckpal.domain.Account;
 import lombok.RequiredArgsConstructor;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
+@Transactional
 @RequiredArgsConstructor
 public class SendMoneyService implements SendMoneyUseCase {
 
     private final LoadAccountPort loadAccountPort;
     private final AccountLock accountLock;
     private final UpdateAccountStatePort updateAccountStatePort;
+    private final MoneyTransferProperties moneyTransferProperties;
 
     @Override
     public boolean sendMoney(SendMoneyCommand command) {
 
-        //checkThreshold(command);
+        checkThreshold(command);
 
         LocalDateTime baselineDate = LocalDateTime.now().minusDays(10);
 
@@ -58,15 +61,10 @@ public class SendMoneyService implements SendMoneyUseCase {
         return true;
     }
 
-/*    private void checkThreshold(SendMoneyCommand command) {
+    private void checkThreshold(SendMoneyCommand command) {
         if (command.getMoney().isGreaterThan(moneyTransferProperties.getMaximumTransferThreshold())) {
             throw new ThresholdExceededException(moneyTransferProperties.getMaximumTransferThreshold(),
                                                  command.getMoney());
         }
-    }*/
-
+    }
 }
-
-
-
-
