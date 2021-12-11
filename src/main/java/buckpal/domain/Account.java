@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Account {
-    @Getter
     private final AccountId id;
 
     @Getter

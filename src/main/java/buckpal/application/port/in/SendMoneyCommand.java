@@ -3,9 +3,10 @@ package buckpal.application.port.in;
 import buckpal.common.SelfValidating;
 import buckpal.domain.Account;
 import buckpal.domain.Money;
-import com.sun.istack.internal.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
+
+import javax.validation.constraints.NotNull;
 
 @Value
 @EqualsAndHashCode(callSuper = false)
